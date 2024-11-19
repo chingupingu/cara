@@ -1,0 +1,36 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cara-dev-8f2a2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::054037119703:role/amplify-cara-dev-8f2a2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::054037119703:role/amplify-cara-dev-8f2a2-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-cara-dev-8f2a2-deployment",
+      "UnauthRoleName": "amplify-cara-dev-8f2a2-unauthRole",
+      "StackName": "amplify-cara-dev-8f2a2",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:054037119703:stack/amplify-cara-dev-8f2a2/7a2d6130-a67a-11ef-a024-067746e3b1e7",
+      "AmplifyAppId": "doqkaq438d2di"
+    },
+    "categories": {
+      "auth": {
+        "cara690f4834": {}
+      },
+      "storage": {
+        "ProductImages": {}
+      },
+      "function": {
+        "processPayment": {
+          "deploymentBucketName": "amplify-cara-dev-8f2a2-deployment",
+          "s3Key": "amplify-builds/processPayment-48492f50576156477971-build.zip"
+        },
+        "createOrder": {
+          "deploymentBucketName": "amplify-cara-dev-8f2a2-deployment",
+          "s3Key": "amplify-builds/createOrder-694563302b5873797553-build.zip"
+        }
+      },
+      "api": {
+        "cara": {}
+      }
+    }
+  }
+}

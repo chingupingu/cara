@@ -1,0 +1,16 @@
+{
+  "resourceName": "ProductImages",
+  "policyUUID": "2f380e1d",
+  "bucketName": "cara6df2000a25c84dd8b952286099ede788",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
