@@ -192,8 +192,10 @@ export const listBooks = /* GraphQL */ `
         price
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;

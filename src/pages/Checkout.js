@@ -5,7 +5,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../components/CheckoutForm";
 
 const Checkout = () => {
-    const stripePromise = loadStripe('<stripe_public_key>');
+    const stripePromise = loadStripe('pk_test_51O4n0jBWraf69XnWSeezJW88o1buIhc2GF99LFdvQAgYaaw1zpXEeAla8XHQZS08uNrkh0EusMbzHoKWKt0Vb7g500NTzmDcIq');
 
     return (
         <section className="checkout-wrapper">
@@ -14,14 +14,14 @@ const Checkout = () => {
                     <main>
                         <h1>Hello {user.username}</h1>
                         <button onClick={signOut}>Sign out</button>
+                        <Elements stripe={stripePromise}>
+                            <section>
+                                <h2>Time to Checkout?</h2>
+                                <CheckoutForm user={user} />
+                            </section>
+                        </Elements>
                     </main>
                 )}
-                <Elements stripe={stripePromise}>
-                    <section>
-                        <h2>Time to Checkout?</h2>
-                        <CheckoutForm />
-                    </section>
-                </Elements>
             </Authenticator>
         </section>
     )

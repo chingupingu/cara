@@ -6,7 +6,9 @@ import { listBooks } from "../api/queries";
 import { processOrder } from "../api/mutations";
 
 const BookContext = React.createContext();
-const client = generateClient();
+const client = generateClient({
+  authMode: 'apiKey'
+});
 
 const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
@@ -36,11 +38,10 @@ const BookProvider = ({ children }) => {
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      // Switch authMode to API_KEY for public access
       const { data } = await client.graphql({
-        query: listBooks,
-        authMode: "API_KEY"
+        query: listBooks
       });
+      console.log("API Response:", data);
       const books = data.listBooks.items;
       const featured = books.filter((book) => {
         return !!book.featured;
@@ -49,7 +50,8 @@ const BookProvider = ({ children }) => {
       setFeatured(featured);
       setLoading(false);
     } catch (err) {
-      console.log(err);
+      console.log("Error details:", err.message, err);
+      setLoading(false);
     }
   };
 

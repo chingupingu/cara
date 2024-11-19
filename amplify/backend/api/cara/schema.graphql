@@ -72,4 +72,11 @@ type Mutation {
   processOrder(input: ProcessOrderInput!): OrderStatus
     @function(name: "processPayment-${env}")
     @function(name: "createOrder-${env}")
+    @auth(
+      rules: [
+        { allow: public }
+        { allow: private }
+        { allow: groups, groups: ["Admin"] }
+      ]
+    )
 }

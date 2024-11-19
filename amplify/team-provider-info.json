@@ -21,7 +21,7 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-cara-dev-8f2a2-deployment",
-          "s3Key": "amplify-builds/processPayment-48492f50576156477971-build.zip"
+          "s3Key": "amplify-builds/processPayment-442f7969394b41764e58-build.zip"
         },
         "createOrder": {
           "deploymentBucketName": "amplify-cara-dev-8f2a2-deployment",
