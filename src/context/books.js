@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { API, graphqlOperation } from "aws-amplify";
+// import { API, graphqlOperation } from "aws-amplify";
+import { generateClient } from 'aws-amplify/api';
 import { v4 as uuidv4 } from "uuid";
 import { listBooks } from "../api/queries";
 import { processOrder } from "../api/mutations";
 
 const BookContext = React.createContext();
+const client = generateClient();
 
 const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
@@ -21,7 +23,10 @@ const BookProvider = ({ children }) => {
       ...orderDetails
     };
     try {
-      await API.graphql(graphqlOperation(processOrder, { input: payload }));
+      client.graphql({
+        query: processOrder,
+        variables: { input: payload }
+      });
       console.log("Order is successful");
     } catch (err) {
       console.log(err);
@@ -32,7 +37,7 @@ const BookProvider = ({ children }) => {
     try {
       setLoading(true);
       // Switch authMode to API_KEY for public access
-      const { data } = await API.graphql({
+      const { data } = await client.graphql({
         query: listBooks,
         authMode: "API_KEY"
       });
